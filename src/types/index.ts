@@ -1,6 +1,15 @@
 
 export type ContentStatus = "pending" | "completed" | "rejected";
 
+export interface Student {
+  id: string;
+  studentId: string;
+  name: string;
+  email: string;
+  enrolledCourses: string[];
+  avatar?: string;
+}
+
 export interface CourseContent {
   id: string;
   title: string;

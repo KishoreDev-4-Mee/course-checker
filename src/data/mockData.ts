@@ -1,5 +1,22 @@
 
-import { Course } from "../types";
+import { Course, Student } from "../types";
+
+export const mockStudents: Student[] = [
+  {
+    id: "1",
+    studentId: "STU001",
+    name: "John Doe",
+    email: "john@example.com",
+    enrolledCourses: ["1", "2"],
+  },
+  {
+    id: "2",
+    studentId: "STU002",
+    name: "Jane Smith",
+    email: "jane@example.com",
+    enrolledCourses: ["1"],
+  },
+];
 
 export const mockCourses: Course[] = [
   {
