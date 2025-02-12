@@ -1,11 +1,11 @@
 
 import { createContext, useContext, useState, useEffect } from "react";
-import { User } from "@/types/auth";
+import { User, UserRole } from "@/types/auth";
 
 interface AuthContextType {
   user: User | null;
   login: (email: string, password: string) => Promise<void>;
-  signup: (email: string, password: string, role: "admin" | "student", name: string) => Promise<void>;
+  signup: (email: string, password: string, role: UserRole, name: string) => Promise<void>;
   logout: () => void;
 }
 
@@ -17,14 +17,14 @@ const MOCK_USERS = [
     id: "1",
     email: "admin@example.com",
     password: "admin123",
-    role: "admin",
+    role: "admin" as UserRole,
     name: "Admin User"
   },
   {
     id: "2",
     email: "student@example.com",
     password: "student123",
-    role: "student",
+    role: "student" as UserRole,
     name: "Student User"
   }
 ];
@@ -49,15 +49,15 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
       throw new Error("Invalid credentials");
     }
     const { password: _, ...userWithoutPassword } = mockUser;
-    setUser(userWithoutPassword);
+    setUser(userWithoutPassword as User);
   };
 
-  const signup = async (email: string, password: string, role: "admin" | "student", name: string) => {
+  const signup = async (email: string, password: string, role: UserRole, name: string) => {
     const exists = MOCK_USERS.some(u => u.email === email);
     if (exists) {
       throw new Error("User already exists");
     }
-    const newUser = {
+    const newUser: User = {
       id: String(MOCK_USERS.length + 1),
       email,
       role,
