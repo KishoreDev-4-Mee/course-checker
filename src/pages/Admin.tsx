@@ -1,11 +1,12 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { LayoutDashboard, Users, BookOpen, PlusCircle, Edit, Trash2, User } from "lucide-react";
+import { Check, X, LayoutDashboard, Users, BookOpen, PlusCircle, Edit, Trash2, User } from "lucide-react";
 import { mockCourses, mockStudents } from "@/data/mockData";
 import { useToast } from "@/hooks/use-toast";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { Student, Course } from "@/types";
 import {
   Form,
   FormControl,
