@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { Check, X, LayoutDashboard, Users, BookOpen, PlusCircle, Edit, Trash2, User } from "lucide-react";
@@ -133,6 +132,18 @@ const StudentsPage = () => {
                 placeholder="Email"
                 type="email"
                 defaultValue={editingStudent?.email}
+              />
+              <Input
+                placeholder="Phone Number"
+                defaultValue={editingStudent?.phoneNumber}
+              />
+              <Input
+                placeholder="Location"
+                defaultValue={editingStudent?.location}
+              />
+              <Input
+                placeholder="Profile Image URL"
+                defaultValue={editingStudent?.avatar}
               />
             </div>
             <div className="flex justify-end space-x-2">
